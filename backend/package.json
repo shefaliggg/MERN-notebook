@@ -4,12 +4,13 @@
   "description": "Notebook",
   "main": "index.js",
   "scripts": {
-    "serve" : "nodemon server.js " 
+    "serve": "nodemon server.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
+    "express-validator": "^6.14.0",
     "mongoose": "^6.3.3"
   },
   "devDependencies": {
