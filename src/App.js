@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/about" element={<About/>} /> 
           </Routes>
         </BrowserRouter>
-        </NoteState>  
+      </NoteState>  
     </>
   );
 }
