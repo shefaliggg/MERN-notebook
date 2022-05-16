@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
+<<<<<<< HEAD
 const Note = require('../models/Note');
 const { body, validationResult } = require('express-validator');
+=======
+const Notes = require('../models/Notes');
+
+//route 1 : fetch all notes GET
+>>>>>>> 6e093d752777fec6368061edca04fd9eb2aba2b8
 
 //route 1 : fetch all notes GET
 
