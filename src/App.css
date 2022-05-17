@@ -2,3 +2,23 @@ body {
     background-color: #333;
     color:white;
 }
+
+.card{
+    background-color:#333;
+    border:1px solid #18FFFF;
+}
+
+.card i {
+    color: #18FFFF;
+    cursor:pointer;
+}
+
+.form-control{
+    background-color: #444;
+    border:0px solid #000;
+}
+
+.btn{
+    background-color: #18FFFF;
+    color:black;
+}
