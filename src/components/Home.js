@@ -3,12 +3,12 @@
 import Notes from "./Notes";
 
 
-export const Home = () => {
+export const Home = ({showAlert}) => {
   
     return (
       <div className="container my-3">
         
-        <Notes/>
+        <Notes showAlert={showAlert}/>
        
       </div>
     );

@@ -19,9 +19,10 @@ router.post(
   ],
   async (req, res) => {
     //validate and return error
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({success, errors: errors.array() });
     }
 
     //check if email exist
@@ -31,7 +32,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "Sorry user with this email already exist" });
+          .json({success, error: "Sorry user with this email already exist" });
       } else {
         //create user
         const salt = await bcrypt.genSalt(10);
@@ -47,8 +48,9 @@ router.post(
             id: user.id,
           },
         };
+        success = true;
         const authtoken = jwt.sign(data, JWT_SECRET);
-        res.json({ authtoken });
+        res.json({success,authtoken });
       }
     } catch (error) {
       console.log(error.message);
@@ -82,7 +84,8 @@ router.post(
 
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
-        return res.status(400).json({ error: "Wrong Credentials" });
+        success = false;
+        return res.status(400).json({success, error: "Wrong Credentials" });
       }
 
       const data = {
@@ -91,7 +94,8 @@ router.post(
         },
       };
       const authtoken = jwt.sign(data, JWT_SECRET);
-      res.json({ authtoken });
+      success = true;
+      res.json({success, authtoken });
     } catch (error) {
       console.log(error.message);
       res.status(500).send("Something went wrong");
